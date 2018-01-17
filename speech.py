@@ -86,8 +86,8 @@ class Speech(object):
 
 if __name__ == '__main__':
     speech = Speech()
-    speech.auth('9C4D6BEB6448468FB73E75A2C33E6ADE', '98EA4B548AEB4A329D21615B9ED060E5', '0201021711000210',
-                           '32F7A304CE8740C5BD61F587F7DD7B88')
+    speech.auth('60659BA5F4D14875A600B8F425994438', '649DCB3204ED413B9838B5C871026681', '4281835E94284245BBFA07852DFA35FD',
+                           'E46DD502D5D0407BA68C94F95941983E')
     speech.sendVoice()
     while True:
         try:
