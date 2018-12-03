@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package rokid.open;
+
+import public "speech_types.proto";
+import public "speech.proto";
+import public "tts.proto";
+import public "auth.proto";
+
+service SpeechService {
+    rpc auth(rokid.open.speech.AuthRequest) returns (rokid.open.speech.AuthResponse) { }
+    rpc speech(stream rokid.open.speech.v2.SpeechRequest) returns (stream rokid.open.speech.v2.SpeechResponse) { }
+    rpc tts(rokid.open.speech.v1.TtsRequest) returns (stream rokid.open.speech.v1.TtsResponse) { }
+}
+

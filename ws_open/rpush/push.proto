@@ -1,0 +1,52 @@
+syntax = "proto2";
+
+package rokid.open.rpush.v1;
+
+enum PacketType {
+  LOGIN_REQ = 1;
+  LOGIN_RESP = 2;
+  PUSH_REQ = 3;
+  PUSH_ACK = 4;
+  PING = 5;
+  PONG = 6;
+}
+
+enum ResultCode {
+  SUCCESS = 0;
+  E_UNKNOWN = -1;
+}
+
+message LoginReq {
+	required string key = 1;
+  required string device_type = 2;
+  required string sn = 3;
+	required string service = 4;
+	required string version = 5;
+	required string timestamp = 6;
+	required string sign = 7;
+}
+
+message LoginResp {
+  required ResultCode result = 1;
+}
+
+message PushReq {
+  required uint32 seqno = 1;
+  required bytes msg = 2;
+}
+
+message PushAck {
+  required uint32 seqno = 1;
+}
+
+message PacketContent {
+  optional LoginReq login_req = 1;
+  optional LoginResp login_resp = 2;
+  optional PushReq push_req = 3;
+  optional PushAck push_ack = 4;
+}
+
+message Packet {
+  required PacketType type = 1;
+  optional PacketContent content = 2;
+}

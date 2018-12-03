@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package rokid.open.speech.v1;
+
+import public "speech_types.proto";
+
+message AsrRequest {
+  required int32 id = 1;
+  required ReqType type = 2;
+  optional bytes voice = 3;
+  optional string lang = 4;
+  optional string codec = 5;
+  // vt = voice trigger
+  optional string vt = 6;
+}
+
+message AsrResponse {
+  required int32 id = 1;
+  required SpeechErrorCode result = 2;
+  optional string asr = 3;
+  optional bool finish = 4;
+}

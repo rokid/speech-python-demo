@@ -1,0 +1,45 @@
+syntax = "proto2";
+
+package rokid.open.speech.v1;
+
+enum SpeechErrorCode {
+  SUCCESS           = 0;
+  UNAUTHENTICATED   = 2;
+  CONNECTION_EXCEED = 3;
+  RESOURCE_EXHASTED = 4;
+  BUSY              = 5;
+  INTERNAL          = 6;
+  VAD_TIMEOUT       = 7;
+  NLP_EMPTY         = 8;
+  UNINITIALIZED     = 9;  // no start
+  DUP_INITIALIZED   = 10; // dup start
+  BADREQUEST        = 11; // bad request
+}
+
+enum ReqType {
+  START   = 0;
+  VOICE   = 1;
+  END     = 2;
+  TEXT    = 3;
+  ONESHOT = 4;
+}
+
+enum Codec {
+  PCM     = 0;
+  OPU     = 1;
+  OPU2    = 2;
+  OPUS    = 3;
+  AMRNB   = 4;
+  AMRWB   = 5;
+  PCM8K   = 6;
+}
+
+message PingPayload {
+        required int32 req_id = 1;
+  // timepoint of now
+  required uint64 now_tp  = 2;
+        // timepoint of request send
+  required uint64 req_tp  = 3;
+        // timepoint of response recv
+  required uint64 resp_tp = 4;
+}
