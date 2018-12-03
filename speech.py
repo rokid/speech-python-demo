@@ -32,9 +32,12 @@ class Speech(object):
             while self.ws.connected:
                 if self.authFlag == 1:
                     self.speechResponse.ParseFromString(self.ws.recv())
-                    print('asr: %s' % self.speechResponse.asr)
                     print('type: %s' % self.speechResponse.type)
                     print('result: %s' % self.speechResponse.result)
+                    print('asr: %s' % self.speechResponse.asr)
+                    print('nlp: %s' % self.speechResponse.nlp)
+                    print('action: %s' % self.speechResponse.action)
+                    print('extra: %s' % self.speechResponse.extra)
                     print('------------------------------------------')
                     if self.speechResponse.type == 2:
                         break
@@ -92,8 +95,10 @@ if __name__ == '__main__':
         file = sys.argv[1]
 
     speech = Speech()
-    speech.auth('60659BA5F4D14875A600B8F425994438', '649DCB3204ED413B9838B5C871026681', '4281835E94284245BBFA07852DFA35FD',
-                           'E46DD502D5D0407BA68C94F95941983E')
+    speech.auth('60659BA5F4D14875A600B8F425994438',
+                '649DCB3204ED413B9838B5C871026681',
+                '4281835E94284245BBFA07852DFA35FD',
+                'E46DD502D5D0407BA68C94F95941983E')
     try:
         speech.sendVoice(file)
     except Exception, e:
