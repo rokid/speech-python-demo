@@ -7,8 +7,16 @@ protoc --python_out=Mspeech_types.proto=gitlab.rokid-inc.com/open-platform/proto
 
 find ws_open/ -name '*.py' | xargs -i cp \{\} . -vf
 
+echo "=============================="
+echo "=        speechv demo        ="
+echo "=============================="
 for pcm in *.pcm; do
 	echo
 	echo "asr $pcm:"
-	python speech.py $pcm
+	python speechv.py $pcm
 done
+
+echo "=============================="
+echo "=        speecht demo        ="
+echo "=============================="
+python speecht.py
