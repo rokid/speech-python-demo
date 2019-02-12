@@ -4,8 +4,8 @@
 from websocket import create_connection
 import sys
 import time
-import speech_pb2
-import auth_pb2
+import speech_pb2    # 生成方法，参考 make.sh
+import auth_pb2      # 生成方法，参考 make.sh
 import hashlib
 import threading
 import random
