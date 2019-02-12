@@ -23,7 +23,7 @@ python版本的speech调用demo
 
 ### 语音 speech
 
-```python speechv.py file.pcm```
+```python speechv.py weather.pcm```
 
 ### 文本 speech
 
@@ -31,7 +31,7 @@ python版本的speech调用demo
 
 ### tts
 
-```python tts.py text file.pcm```
+```python tts.py text tts.pcm```
 
 
 
