@@ -5,7 +5,7 @@ python版本的speech调用demo
 ### 环境
 
 1. python 版本 2.7
-2. pip install websocket
+2. pip install websocket websocket-client
 3. pip install protobuf
 
 ### 设备信息
