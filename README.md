@@ -17,6 +17,10 @@ python版本的speech调用demo
 
 ``` ./make.sh```
 
+### proto 生成的文件
+
+```auth_pb2.py  speech_pb2.py  speech_types_pb2.py  tts_pb2.py``` 为 ```ws_open``` 目录下 ```proto``` 文件生成的对应文件，以下命令需要依赖这些文件的生成，生成方法可参考 ```make.sh```
+
 ### 语音 speech
 
 ```python speechv.py file.pcm```
