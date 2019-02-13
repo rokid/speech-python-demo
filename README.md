@@ -7,6 +7,8 @@ python版本的speech调用demo
 1. python 版本 2.7
 2. pip install websocket websocket-client
 3. pip install protobuf
+注：
+如果 import 出错，请先 ```pip uninstall websocket websocket-client```再 ```pip install websocket websocket-client```，再作尝试
 
 ### 设备信息
 
