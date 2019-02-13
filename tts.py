@@ -15,7 +15,7 @@ class Tts(object):
     def __init__(self, file):
         self.file = file
         self.isAuth = True    # 第一次接到的请求包是认证包
-        self.ws = create_connection("wss://apigwws-daily.open.rokid.com/api", timeout=100)
+        self.ws = create_connection("wss://apigwws.open.rokid.com/api", timeout=100)
         # 建一个线程，监听服务器发送给客户端的数据
         self.trecv = threading.Thread(target=self.recv)
         self.trecv.start()
