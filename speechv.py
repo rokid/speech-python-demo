@@ -80,8 +80,8 @@ class SpeechVoice(object):
         reqStart = speech_pb2.SpeechRequest()
         reqStart.id = reqId
         reqStart.type = 0  # voice start  发送一个语音发送开始包
-        reqStart.options.no_nlp = 1
-        reqStart.options.no_intermediate_asr = 1
+        # reqStart.options.no_nlp = 1
+        # reqStart.options.no_intermediate_asr = 1
         self.ws.send_binary(reqStart.SerializeToString())
 
         with open(file, 'rb') as f:
