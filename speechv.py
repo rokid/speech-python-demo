@@ -2,10 +2,12 @@
 # coding:utf-8
 
 from websocket import create_connection
+import os
 import sys
 import time
-import speech_pb2    # 生成方法，参考 make.sh
-import auth_pb2      # 生成方法，参考 make.sh
+import speech_pb2           # 生成方法，参考 make.sh
+import auth_pb2             # 生成方法，参考 make.sh
+import speech_types_pb2     # 生成方法，参考 make.sh
 import hashlib
 import threading
 import random
@@ -82,6 +84,19 @@ class SpeechVoice(object):
         reqStart.type = 0  # voice start  发送一个语音发送开始包
         # reqStart.options.no_nlp = 1
         # reqStart.options.no_intermediate_asr = 1
+
+        filename, fileext = os.path.splitext(file)
+        print('file:\t%s\t%s' % (filename, fileext))
+        found = False
+        for k,v in speech_types_pb2.Codec.DESCRIPTOR.values_by_name.items():
+            if fileext.upper() == "." + k:
+                reqStart.options.codec = v.number
+                found = True
+                break
+        if not found:
+            raise Exception,"unsupport file format"
+        print("{} -> {}".format(fileext, reqStart.options.codec))
+
         self.ws.send_binary(reqStart.SerializeToString())
 
         with open(file, 'rb') as f:
