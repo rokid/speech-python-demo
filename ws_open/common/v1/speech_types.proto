@@ -32,6 +32,8 @@ enum Codec {
   AMRNB   = 4;
   AMRWB   = 5;
   PCM8K   = 6;
+  WAV     = 7;
+  PCM32   = 8;
 }
 
 message PingPayload {
