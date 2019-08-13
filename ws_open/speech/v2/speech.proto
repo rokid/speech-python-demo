@@ -61,6 +61,7 @@ message SpeechOptions {
   optional string voice_extra   = 13;
   optional uint32 vad_begin     = 14;
   optional bool no_trigger_confirm = 15;
+  optional bool itn = 16;
 }
 
 message SpeechRequest {
