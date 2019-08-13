@@ -7,9 +7,7 @@ python版本的speech调用demo
 1. python 版本 2.7
 2. pip install websocket websocket-client
 3. pip install protobuf
-
-注：
-如果 import 出错，请先 ```pip uninstall websocket websocket-client```再 ```pip install websocket websocket-client```，再作尝试
+4. protoc
 
 ### 设备信息
 
@@ -19,6 +17,10 @@ python版本的speech调用demo
 ### 运行
 
 ``` ./make.sh```
+
+注：
+1. 如果提示 ```protoc：command not found```，请先视系统不同用系统工具安装 protoc，如 centos 中用 ```yum install protobuf-compiler``` 
+2. 如果 import 出错，请先 ```pip uninstall websocket websocket-client```再 ```pip install websocket websocket-client```，再作尝试
 
 ### proto 生成的文件
 
