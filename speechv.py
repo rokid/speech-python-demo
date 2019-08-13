@@ -84,6 +84,7 @@ class SpeechVoice(object):
         reqStart.type = 0  # voice start  发送一个语音发送开始包
         # reqStart.options.no_nlp = 1
         # reqStart.options.no_intermediate_asr = 1
+        # reqStart.options.itn = 1
 
         filename, fileext = os.path.splitext(file)
         print('file:\t%s\t%s' % (filename, fileext))
