@@ -1,13 +1,9 @@
 #!/bin/bash
 
-protoc --python_out=ws_open/common    -Iws_open/common    ws_open/common/auth.proto
-protoc --python_out=ws_open/common/v1 -Iws_open/common/v1 ws_open/common/v1/speech_types.proto
-protoc --python_out=Mspeech_types.proto=gitlab.rokid-inc.com/open-platform/protobuf/ws_open/common/v1:ws_open/speech/v1 -Iws_open/common/v1:ws_open/speech/v1 ws_open/speech/v1/speech.proto
-protoc --python_out=Mspeech_types.proto=gitlab.rokid-inc.com/open-platform/protobuf/ws_open/common/v1:ws_open/speech/v2 -Iws_open/common/v1:ws_open/speech/v2 ws_open/speech/v2/speech.proto
-protoc --python_out=Mspeech_types.proto=gitlab.rokid-inc.com/open-platform/protobuf/ws_open/common/v1:ws_open/tts/v1 -Iws_open/common/v1:ws_open/tts/v1 ws_open/tts/v1/tts.proto
-
-find ws_open/ -name '*.py' | xargs -i cp \{\} . -vf
-find ws_open/ -name '*.py' | xargs rm -vf \{\}
+protoc --python_out=. -Iws_open/common    ws_open/common/auth.proto
+protoc --python_out=. -Iws_open/common/v1 ws_open/common/v1/speech_types.proto
+protoc --python_out=Mspeech_types.proto=gitlab.rokid-inc.com/open-platform/protobuf/ws_open/common/v1:. -Iws_open/common/v1:ws_open/speech/v2 ws_open/speech/v2/speech.proto
+protoc --python_out=Mspeech_types.proto=gitlab.rokid-inc.com/open-platform/protobuf/ws_open/common/v1:. -Iws_open/common/v1:ws_open/tts/v1 ws_open/tts/v1/tts.proto
 
 echo "=========================================="
 echo "=                speechv demo            ="
